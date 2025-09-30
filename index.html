@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HARDER BOX - Inicio</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="container nav">
+            <a href="index.html" class="brand">
+                <img src="assets/img/logo.svg" alt="HARDER BOX" />
+                <span>HARDER BOX</span>
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li><a data-nav href="index.html">Inicio</a></li>
+                    <li><a data-nav href="servicios.html">Servicios</a></li>
+                    <li><a data-nav href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <h1>Entrená con nosotros</h1>
+            <p>Planes personalizados, profesores certificados y el mejor ambiente para alcanzar tus metas.</p>
+        </section>
+
+        <!-- Carrousel obligatorio -->
+        <section class="carousel" aria-label="Galería del gimnasio">
+            <button class="carousel-btn prev" aria-label="Anterior">⟨</button>
+
+            <figure class="carousel-viewport">
+                <img id="carousel-image" src="assets/img/slide1.jpg" alt="Instalaciones del gimnasio" />
+                <figcaption id="carousel-caption">Sala de musculación</figcaption>
+            </figure>
+
+            <button class="carousel-btn next" aria-label="Siguiente">⟩</button>
+        </section>
+
+        <section class="grid-3">
+            <article class="card">
+                <h2>Musculación</h2>
+                <p>Equipamiento de primera línea y rutinas adaptadas a tu nivel.</p>
+            </article>
+            <article class="card">
+                <h2>Clases grupales</h2>
+                <p>Funcional, HIIT, spinning, yoga y más, con profesores certificados.</p>
+            </article>
+            <article class="card">
+                <h2>Nutrición</h2>
+                <p>Asesoramiento nutricional para complementar tu entrenamiento.</p>
+            </article>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-grid">
+            <small>© <span id="year"></span> Gimnasio</small>
+            <small>San Luis, Argentina</small>
+        </div>
+    </footer>
+
+    <script src="assets/js/nav.js" defer></script>
+    <script src="assets/js/carousel.js" defer></script>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

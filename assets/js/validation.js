@@ -1,69 +1,72 @@
 (function () {
-    const form = document.getElementById('contact-form');
+    const form = document.getElementById("contact-form");
     if (!form) return;
 
-    const $ = s => document.querySelector(s);
-    const showError = (name, msg) => {
-        const el = document.querySelector(`.error[data-error-for="${name}"]`);
-        const input = document.getElementById(name);
-        if (el) el.textContent = msg || '';
-        if (input) {
-            if (msg) {
-                input.classList.add('input-error');
-            } else {
-                input.classList.remove('input-error');
-            }
-        }
-    };
-
-    const emailRe = /^[\w.-]+@[\w.-]+\.[A-Za-z]{2,}$/;
-    const phoneRe = /^\+?\d{7,15}$/;
-
-    form.addEventListener('submit', e => {
+    form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        ['nombre', 'email', 'telefono', 'mensaje'].forEach(n => showError(n, ''));
+        let errores = document.querySelectorAll(".error");
+        errores.forEach(err => err.textContent = "");
+        const result = document.getElementById("submit-result");
+        result.innerHTML = "";
 
-        const data = {
-            nombre: $('#nombre').value.trim(),
-            email: $('#email').value.trim(),
-            telefono: $('#telefono').value.trim(),
-            mensaje: $('#mensaje').value.trim()
-        };
+        let nombre = document.getElementById("nombre").value.trim();
+        let email = document.getElementById("email").value.trim();
+        let telefono = document.getElementById("telefono").value.trim();
+        let mensaje = document.getElementById("mensaje").value.trim();
 
-        let ok = true;
+        let valido = true;
 
-        if (!data.nombre) { ok = false; showError('nombre', 'El nombre es obligatorio.'); }
-        if (!data.email) { ok = false; showError('email', 'El correo es obligatorio.'); }
-        else if (!emailRe.test(data.email)) { ok = false; showError('email', 'Ingresá un correo válido.'); }
+        if (nombre === "") {
+            let p = document.createElement("p");
+            p.textContent = "El nombre es obligatorio.";
+            p.style.color = "red";
+            document.getElementById("nombre").after(p);
+            valido = false;
+        }
 
-        if (!data.telefono) { ok = false; showError('telefono', 'El teléfono es obligatorio.'); }
-        else if (!phoneRe.test(data.telefono)) { ok = false; showError('telefono', 'Teléfono no válido (7 a 15 dígitos).'); }
+        if (email === "") {
+            let p = document.createElement("p");
+            p.textContent = "El correo es obligatorio.";
+            p.style.color = "red";
+            document.getElementById("email").after(p);
+            valido = false;
+        }
 
-        if (!data.mensaje) { ok = false; showError('mensaje', 'El mensaje es obligatorio.'); }
+        if (telefono === "") {
+            let p = document.createElement("p");
+            p.textContent = "El teléfono es obligatorio.";
+            p.style.color = "red";
+            document.getElementById("telefono").after(p);
+            valido = false;
+        }
 
-        const result = document.getElementById('submit-result');
-        result.innerHTML = '';
+        if (mensaje === "") {
+            let p = document.createElement("p");
+            p.textContent = "El mensaje es obligatorio.";
+            p.style.color = "red";
+            document.getElementById("mensaje").after(p);
+            valido = false;
+        }
 
-        if (ok) {
-            const card = document.createElement('article');
-            card.className = 'dato';
-            card.innerHTML = `
-        <strong>Nombre:</strong> ${data.nombre}<br>
-        <strong>Email:</strong> ${data.email}<br>
-        <strong>Teléfono:</strong> ${data.telefono}<br>
-        <strong>Mensaje:</strong> ${data.mensaje}
-      `;
+        if (valido) {
+            let card = document.createElement("div");
+            card.className = "dato";
+            card.innerHTML =
+                "<strong>Nombre:</strong> " + nombre + "<br>" +
+                "<strong>Email:</strong> " + email + "<br>" +
+                "<strong>Teléfono:</strong> " + telefono + "<br>" +
+                "<strong>Mensaje:</strong> " + mensaje;
+
             result.appendChild(card);
-
             form.reset();
-            alert('✅ Mensaje enviado correctamente.');
+            alert("✅ Mensaje enviado correctamente.");
         } else {
-            const alertMsg = document.createElement('p');
-            alertMsg.textContent = 'Por favor, revisá los campos marcados en rojo.';
-            alertMsg.style.color = '#fca5a5';
-            alertMsg.style.marginTop = '10px';
-            result.appendChild(alertMsg);
+            let aviso = document.createElement("p");
+            aviso.textContent = "Por favor, completá todos los campos.";
+            aviso.style.color = "#fca5a5";
+            aviso.style.marginTop = "10px";
+            result.appendChild(aviso);
         }
     });
 })();

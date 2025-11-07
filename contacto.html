@@ -99,36 +99,26 @@
       margin-top: 20px;
     }
 
-    footer.footer {
-      text-align: center;
-      margin-top: 60px;
-      color: var(--muted);
-      font-size: 0.85rem;
-      padding-bottom: 20px;
-    }
-
-    footer.footer span {
-      color: var(--pink);
-    }
+   
   </style>
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="container nav">
-      <a href="index.html" class="brand">
-        <img src="assets/img/Logo.png" alt="HARDER BOX" />
-        <span>HARDER BOX</span>
-      </a>
-      <nav>
-        <ul class="menu">
-          <li><a href="index.html">Inicio</a></li>
-          <li><a href="servicios.html">Servicios</a></li>
-          <li><a class="active" href="contacto.html">Contacto</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+ <header class="topbar">
+        <div class="nav">
+            <a href="index.html" class="brand">
+                <img src="assets/img/Logo.png" alt="HARDER BOX" />
+                <span>HARDER BOX</span>
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li><a data-nav class="active" href="index.html">Inicio</a></li>
+                    <li><a data-nav href="servicios.html">Servicios</a></li>
+                    <li><a data-nav href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
   <main class="container">
     <div class="logo">
@@ -162,10 +152,10 @@
   </main>
 
   <footer class="footer">
-    © 2025 <span>HARDER GYM</span> — Fuerza sin límites.
+    © 2025 <span>HARDER BOX</span> — Fuerza sin límites.
   </footer>
 
-  <!-- Scripts -->
+
   <script src="./assets/js/nav.js" defer></script>
   <script src="./assets/js/validation.js" defer></script>
 </body>

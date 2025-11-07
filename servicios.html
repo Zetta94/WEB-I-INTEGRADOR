@@ -7,41 +7,55 @@
     <title>Servicios - HARDER</title>
     <link rel="stylesheet" href="assets/css/main.css" />
     <style>
-        .cols {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            justify-content: center;
-        }
+      .cols {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+   align-items: stretch; 
+  padding: 40px 0;
+}
 
-        .col {
-            background: var(--gray);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 1.5rem;
-            flex: 1 1 280px;
-            box-shadow: 0 0 20px rgba(230, 0, 126, 0.15);
-            transition: transform 0.3s;
-        }
+.col {
+  background-color: #111;
+  border: 1px solid #ff1493;
+  border-radius: 10px;
+  padding: 20px;
+  width: 300px;
+  text-align: center;
+  color: #fff;
+  box-shadow:0 0 6px var(--pink);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  
+}
 
-        .col:hover {
-            transform: translateY(-6px);
-            border-color: var(--pink);
-        }
+.col:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 25px rgba(255, 0, 255, 0.6);
+}
 
-        .col h2 {
-            color: var(--pink);
-            margin-bottom: 10px;
-        }
+.col img {
+  width: 100%;
+  height: 300px; 
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  transition: transform 0.4s ease, filter 0.3s ease;
+}
 
-        .col ul {
-            list-style: none;
-            padding: 0;
-        }
+.col h2 {
+  color:#ff1493;
+  margin-bottom: 10px;
+}
 
-        .col li {
-            margin-bottom: 6px;
-        }
+.col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.col li {
+  margin: 6px 0;
+}
     </style>
 </head>
 
@@ -69,37 +83,52 @@
         </header>
 
         <article class="cols">
-            <section class="col">
-                <h2>Plan Básico</h2>
-                <ul>
-                    <li>Acceso a sala de musculación</li>
-                    <li>Rutina mensual</li>
-                    <li>Horarios flexibles</li>
-                </ul>
-            </section>
+    <section class="col">
+        <img src="assets/img/7.jpeg" alt="Funcional">
+        <h2>Funcional</h2>
+        <ul>
+            <li>Entrenamiento que mejora  </li>
+            <li>fuerza, movilidad y equilibrio</li>
+            <li>para el día a día.</li>
+        </ul>
+    </section>
 
-            <section class="col">
-                <h2>Plan Full</h2>
-                <ul>
-                    <li>Todo lo del básico</li>
-                    <li>Clases grupales ilimitadas</li>
-                    <li>Evaluación física trimestral</li>
-                </ul>
-            </section>
+    <section class="col">
+        <img src="assets/img/8.jpeg" alt="CrossFit">
+        <h2>CrossFit</h2>
+        <ul>
+            <li>Entrenamiento intenso que</li>
+            <li>combina fuerza, resistencia y</li>
+            <li>técnica para superar tus límites.</li>
+        </ul>
+    </section>
 
-            <section class="col">
-                <h2>Plan Premium</h2>
-                <ul>
-                    <li>Entrenador personal</li>
-                    <li>Plan nutricional</li>
-                    <li>Acceso a eventos exclusivos</li>
-                </ul>
-            </section>
-        </article>
+    <section class="col">
+        <img src="assets/img/9.jpeg" alt="Personalizado">
+        <h2>Personalizado</h2>
+        <ul>
+            <li>Entrenamientos diseñados</li>
+            <li>según tus objetivos,</li>
+            <li>nivel y ritmo.</li>
+        </ul>
+    </section>
+
+    <section class="col">
+        <img src="assets/img/10.jpeg" alt="Open">
+        <h2>Open box</h2>
+        <ul>
+            <li>Entrená de forma independiente    </li>
+            <li>con acceso total al box</li>
+            <li>y al equipamiento.</li>
+        </ul>
+    </section>
+
+
+</article>
     </main>
 
     <footer class="footer">
-        © 2025 <span>HARDER GYM</span> — Fuerza sin límites.
+        © 2025 <span>HARDER BOX</span> — Fuerza sin límites.
     </footer>
 
     <script>document.getElementById('year').textContent = new Date().getFullYear();</script>

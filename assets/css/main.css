@@ -198,21 +198,17 @@ button:hover {
     transform: scale(1.03);
 }
 
-/* === FOOTER ===
-footer.footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 0.85rem;
-    padding: 20px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    margin-top: auto;
-}
+ footer.footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding-bottom: 20px;
+    }
 
-footer.footer span {
-    color: var(--pink);
-} */
-
-/* UTILIDADES */
+    footer.footer span {
+      color: var(--pink);
+    }
 .dato {
     background: rgba(255, 255, 255, 0.05);
     border-left: 4px solid var(--pink);

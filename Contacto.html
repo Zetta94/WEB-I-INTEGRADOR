@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Registro - HARDER</title>
+  <title>Contacto - HARDER BOX</title>
   <link rel="stylesheet" href="assets/css/main.css" />
   <style>
     main.container {
@@ -30,7 +30,7 @@
       margin-bottom: 30px;
     }
 
-    .registro-box {
+    .contact-box {
       background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
       padding: 40px;
       border-radius: 16px;
@@ -49,7 +49,6 @@
     }
 
     input,
-    select,
     textarea {
       width: 100%;
       padding: 10px;
@@ -63,7 +62,6 @@
     }
 
     input:focus,
-    select:focus,
     textarea:focus {
       border-color: var(--pink);
       outline: none;
@@ -75,13 +73,6 @@
       font-size: 0.8rem;
       margin-top: 4px;
       min-height: 18px;
-    }
-
-    .success {
-      color: #6cff9c;
-      text-align: center;
-      margin-top: 15px;
-      font-weight: 600;
     }
 
     button {
@@ -104,18 +95,8 @@
       transform: scale(1.03);
     }
 
-    #resultados {
+    #submit-result {
       margin-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 15px;
-    }
-
-    .dato {
-      background: rgba(255, 255, 255, 0.05);
-      border-left: 4px solid var(--pink);
-      padding: 10px;
-      border-radius: 6px;
-      margin-top: 10px;
     }
 
     footer.footer {
@@ -134,7 +115,7 @@
 
 <body>
   <header class="topbar">
-    <div class="nav">
+    <div class="container nav">
       <a href="index.html" class="brand">
         <img src="assets/img/Logo.png" alt="HARDER BOX" />
         <span>HARDER BOX</span>
@@ -143,53 +124,40 @@
         <ul class="menu">
           <li><a href="index.html">Inicio</a></li>
           <li><a href="servicios.html">Servicios</a></li>
-          <li><a class="active" href="contacto.html">Registro</a></li>
+          <li><a class="active" href="contacto.html">Contacto</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <main class="container">
-    <!-- Logo y título fuera del formulario -->
     <div class="logo">
       <img src="assets/img/Logo_Circulo.png" alt="Harder Gym Logo">
     </div>
-    <h1>Registro HARDER</h1>
+    <h1>Contáctanos</h1>
 
-    <!-- Formulario -->
-    <div class="registro-box">
-      <form id="formRegistro" novalidate>
+    <div class="contact-box">
+      <form id="contact-form" novalidate>
         <label for="nombre">Nombre completo:</label>
         <input type="text" id="nombre" maxlength="60" placeholder="Tu nombre" required>
-        <div class="error" id="err-nombre"></div>
+        <div class="error" data-error-for="nombre"></div>
 
         <label for="email">Correo electrónico:</label>
         <input type="email" id="email" maxlength="100" placeholder="tucorreo@email.com" required>
-        <div class="error" id="err-email"></div>
+        <div class="error" data-error-for="email"></div>
 
         <label for="telefono">Teléfono:</label>
         <input type="tel" id="telefono" maxlength="20" placeholder="+54 9 11 1234 5678" required>
-        <div class="error" id="err-telefono"></div>
+        <div class="error" data-error-for="telefono"></div>
 
-        <label for="plan">Plan elegido:</label>
-        <select id="plan" required>
-          <option value="">Seleccionar...</option>
-          <option value="mensual">Mensual</option>
-          <option value="trimestral">Trimestral</option>
-          <option value="anual">Anual</option>
-        </select>
-        <div class="error" id="err-plan"></div>
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" rows="3" maxlength="300" placeholder="Escribinos tu consulta..." required></textarea>
+        <div class="error" data-error-for="mensaje"></div>
 
-        <label for="objetivo">Objetivo personal:</label>
-        <textarea id="objetivo" rows="3" maxlength="300" placeholder="Ej: ganar masa muscular, bajar de peso..."
-          required></textarea>
-        <div class="error" id="err-objetivo"></div>
-
-        <button type="submit">Unirme al Gym</button>
+        <button type="submit">Enviar mensaje</button>
       </form>
 
-      <div id="mensaje" class="success"></div>
-      <div id="resultados"></div>
+      <div id="submit-result"></div>
     </div>
   </main>
 
@@ -197,74 +165,9 @@
     © 2025 <span>HARDER GYM</span> — Fuerza sin límites.
   </footer>
 
-  <script>
-    const form = document.getElementById('formRegistro');
-    const mensaje = document.getElementById('mensaje');
-    const resultados = document.getElementById('resultados');
-
-    const errores = {
-      nombre: document.getElementById('err-nombre'),
-      email: document.getElementById('err-email'),
-      telefono: document.getElementById('err-telefono'),
-      plan: document.getElementById('err-plan'),
-      objetivo: document.getElementById('err-objetivo')
-    };
-
-    function limpiarErrores() {
-      Object.values(errores).forEach(e => e.textContent = "");
-      mensaje.textContent = "";
-    }
-
-    function validarEmail(email) {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-      return emailRegex.test(email);
-    }
-
-    function validarTelefono(tel) {
-      const telRegex = /^[0-9+()\s-]{7,20}$/;
-      return telRegex.test(tel);
-    }
-
-    form.addEventListener('submit', e => {
-      e.preventDefault();
-      limpiarErrores();
-
-      const nombre = document.getElementById('nombre').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const telefono = document.getElementById('telefono').value.trim();
-      const plan = document.getElementById('plan').value;
-      const objetivo = document.getElementById('objetivo').value.trim();
-
-      let valido = true;
-
-      if (!nombre) { errores.nombre.textContent = "El nombre es obligatorio."; valido = false; }
-      if (!email) { errores.email.textContent = "El correo es obligatorio."; valido = false; }
-      else if (!validarEmail(email)) { errores.email.textContent = "Correo electrónico no válido."; valido = false; }
-
-      if (!telefono) { errores.telefono.textContent = "El teléfono es obligatorio."; valido = false; }
-      else if (!validarTelefono(telefono)) { errores.telefono.textContent = "Formato de teléfono no válido."; valido = false; }
-
-      if (!plan) { errores.plan.textContent = "Seleccioná un plan."; valido = false; }
-      if (!objetivo) { errores.objetivo.textContent = "El objetivo es obligatorio."; valido = false; }
-
-      if (!valido) return;
-
-      mensaje.textContent = "✅ Registro completado correctamente.";
-
-      const div = document.createElement("div");
-      div.className = "dato";
-      div.innerHTML = `
-        <strong>Nombre:</strong> ${nombre}<br>
-        <strong>Email:</strong> ${email}<br>
-        <strong>Teléfono:</strong> ${telefono}<br>
-        <strong>Plan:</strong> ${plan}<br>
-        <strong>Objetivo:</strong> ${objetivo}
-      `;
-      resultados.appendChild(div);
-
-      form.reset();
-    });
-  </script>
+  <!-- Scripts -->
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/validation.js" defer></script>
 </body>
 
 </html>

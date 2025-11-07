@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registro HARDER</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+    :root {
+      --pink: #E6007E;
+      --black: #000000;
+      --dark: #111111;
+      --gray: #2B2B2B;
+      --white: #FFFFFF;
+      --muted: #BBBBBB;
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(135deg, #000 70%, #1a1a1a);
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      justify-content: flex-start;
+    }
+
+    header.topbar {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.85);
+      border-bottom: 2px solid var(--pink);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .topbar .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 30px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+    }
+
+  .brand img {
+  width: 40px;
+  margin-right: 10px;
+  margin-left: -15px; 
+}
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    .menu a:hover {
+      color: var(--pink);
+    }
+
+    .menu a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background: var(--pink);
+      transition: width 0.3s;
+    }
+
+    .menu a:hover::after {
+      width: 100%;
+    }
+
+  
+    .container {
+      background: linear-gradient(180deg, #0d0d0d, #1a1a1a);
+      padding: 40px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 0 40px rgba(230, 0, 126, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      margin-top: 60px;
+      
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .logo img {
+      width: 80px;
+    }
+
+    h1 {
+      text-align: center;
+      color: var(--pink);
+      font-weight: 800;
+      font-size: 1.6rem;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 6px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background: var(--gray);
+      color: var(--white);
+      font-size: 0.95rem;
+      transition: border-color 0.3s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--pink);
+      outline: none;
+      box-shadow: 0 0 6px var(--pink);
+    }
+
+    .error {
+      color: #ff8da1;
+      font-size: 0.8rem;
+      margin-top: 4px;
+      min-height: 18px;
+    }
+
+    .success {
+      color: #6cff9c;
+      text-align: center;
+      margin-top: 15px;
+      font-weight: 600;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      background: var(--pink);
+      color: var(--white);
+      font-weight: 700;
+      border: none;
+      border-radius: 8px;
+      padding: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+
+    button:hover {
+      background: #ff1493;
+      transform: scale(1.03);
+    }
+
+ 
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding-bottom: 20px;
+    }
+
+    footer span {
+      color: var(--pink);
+    }
+
+ 
+    #resultados {
+      margin-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 15px;
+    }
+
+    .dato {
+      background: rgba(255,255,255,0.05);
+      border-left: 4px solid var(--pink);
+      padding: 10px;
+      border-radius: 6px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <header class="topbar">
+    <div class="nav">
+      <a href="index.html" class="brand">
+        <img src="Logo_Circulo.png" alt="HARDER BOX" />
+        <span>HARDER BOX</span>
+      </a>
+      <nav>
+        <ul class="menu">
+          <li><a data-nav href="index.html">Inicio</a></li>
+          <li><a data-nav href="servicios.html">Servicios</a></li>
+          <li><a data-nav href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+
+  <div class="container">
+    <div class="logo">
+      <img src="Logo_Circulo.png" alt="Harder Gym Logo">
+    </div>
+    <h1>Registro HARDER</h1>
+    <form id="formRegistro" novalidate>
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" maxlength="60" placeholder="Tu nombre" required>
+      <div class="error" id="err-nombre"></div>
+
+      <label for="email">Correo electrónico:</label>
+      <input type="email" id="email" maxlength="100" placeholder="tucorreo@email.com" required>
+      <div class="error" id="err-email"></div>
+
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" id="telefono" maxlength="20" placeholder="+54 9 11 1234 5678" required>
+      <div class="error" id="err-telefono"></div>
+
+      <label for="plan">Plan elegido:</label>
+      <select id="plan" required>
+        <option value="">Seleccionar...</option>
+        <option value="mensual">Mensual</option>
+        <option value="trimestral">Trimestral</option>
+        <option value="anual">Anual</option>
+      </select>
+      <div class="error" id="err-plan"></div>
+
+      <label for="objetivo">Objetivo personal:</label>
+      <textarea id="objetivo" rows="3" maxlength="300" placeholder="Ej: ganar masa muscular, bajar de peso..." required></textarea>
+      <div class="error" id="err-objetivo"></div>
+
+      <button type="submit">Unirme al Gym</button>
+    </form>
+
+    <div id="mensaje" class="success"></div>
+    <div id="resultados"></div>
+
+    <footer>© 2025 <span>HARDER GYM</span> — Fuerza sin límites.</footer>
+  </div>
+
+ 
+  <script>
+    const form = document.getElementById('formRegistro');
+    const mensaje = document.getElementById('mensaje');
+    const resultados = document.getElementById('resultados');
+
+    const errores = {
+      nombre: document.getElementById('err-nombre'),
+      email: document.getElementById('err-email'),
+      telefono: document.getElementById('err-telefono'),
+      plan: document.getElementById('err-plan'),
+      objetivo: document.getElementById('err-objetivo')
+    };
+
+    function limpiarErrores() {
+      Object.values(errores).forEach(e => e.textContent = "");
+      mensaje.textContent = "";
+    }
+
+    function validarEmail(email) {
+      const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$/;
+      return emailRegex.test(email);
+    }
+
+    function validarTelefono(tel) {
+      const telRegex = /^[0-9+()\\s-]{7,20}$/;
+      return telRegex.test(tel);
+    }
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      limpiarErrores();
+
+      const nombre = document.getElementById('nombre').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const telefono = document.getElementById('telefono').value.trim();
+      const plan = document.getElementById('plan').value;
+      const objetivo = document.getElementById('objetivo').value.trim();
+
+      let valido = true;
+
+      if (!nombre) {
+        errores.nombre.textContent = "El nombre es obligatorio.";
+        valido = false;
+      }
+
+      if (!email) {
+        errores.email.textContent = "El correo es obligatorio.";
+        valido = false;
+      } else if (!validarEmail(email)) {
+        errores.email.textContent = "Correo electrónico no válido.";
+        valido = false;
+      }
+
+      if (!telefono) {
+        errores.telefono.textContent = "El teléfono es obligatorio.";
+        valido = false;
+      } else if (!validarTelefono(telefono)) {
+        errores.telefono.textContent = "Formato de teléfono no válido.";
+        valido = false;
+      }
+
+      if (!plan) {
+        errores.plan.textContent = "Seleccioná un plan.";
+        valido = false;
+      }
+
+      if (!objetivo) {
+        errores.objetivo.textContent = "El objetivo es obligatorio.";
+        valido = false;
+      }
+
+      if (!valido) return;
+
+      mensaje.textContent = "✅ Registro completado correctamente.";
+
+      const div = document.createElement("div");
+      div.className = "dato";
+      div.innerHTML = `
+        <strong>Nombre:</strong> ${nombre}<br>
+        <strong>Email:</strong> ${email}<br>
+        <strong>Teléfono:</strong> ${telefono}<br>
+        <strong>Plan:</strong> ${plan}<br>
+        <strong>Objetivo:</strong> ${objetivo}
+      `;
+      resultados.appendChild(div);
+
+      form.reset();
+    });
+  </script>
+</body>
+</html>

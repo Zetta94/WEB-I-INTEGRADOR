@@ -7,7 +7,6 @@
 
     let i = 0;
     const img = document.getElementById('carousel-image');
-    const cap = document.getElementById('carousel-caption');
     const prev = document.querySelector('.carousel .prev');
     const next = document.querySelector('.carousel .next');
 

@@ -2,160 +2,179 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HARDER BOX - Inicio</title>
-    <link rel="stylesheet" href="assets/css/main.css" />
-<Style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HARDER BOX - Inicio</title>
+  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <style>
     .carousel {
-  position: relative;
-  max-width: 700px;
-  margin: 60px auto;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 0 30px rgba(230, 0, 126, 0.3);
-}
+      position: relative;
+      max-width: 800px;
+      margin: 60px auto;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 35px rgba(230, 0, 126, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #0d0d0d;
+    }
 
-.carousel-viewport img {
-  width: 100%;
-  display: block;
-  border-radius: 16px;
-  transition: opacity 0.6s ease-in-out;
-}
+    .carousel-viewport {
+      position: relative;
+      overflow: hidden;
+    }
 
-.carousel-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
-  color: var(--white);
-  font-size: 2rem;
-  border: none;
-  padding: 6px 12px;
-  cursor: pointer;
-  border-radius: 50%;
-  transition: background 0.3s;
-}
+    .carousel-viewport img {
+      width: 100%;
+      height: 600px;
+      object-fit: contain;
+      background: #000;
+      border-radius: 16px;
+      display: block;
+      transition: opacity 0.6s ease-in-out;
+    }
 
-.carousel-btn:hover {
-  background: var(--pink);
-}
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.6);
+      color: var(--white);
+      font-size: 2rem;
+      border: none;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 50%;
+      transition: background 0.3s, transform 0.1s;
+      z-index: 10;
+    }
 
-.carousel-btn.prev {
-  left: 10px;
-}
+    .carousel-btn:hover {
+      background: var(--pink);
+    }
 
-.carousel-btn.next {
-  right: 10px;
-}
+    .carousel-btn:focus {
+      outline: none;
+      box-shadow: none;
+      transform: translateY(-50%) scale(1);
+    }
 
-#carousel-caption {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px;
-  font-size: 1rem;
-  color: var(--white);
-  font-weight: 600;
-  border-top: 2px solid var(--pink);
-}
-</Style>
+    .carousel-btn:active {
+      transform: translateY(-50%) scale(0.95);
+    }
+
+    .carousel-btn.prev {
+      left: 15px;
+    }
+
+    .carousel-btn.next {
+      right: 15px;
+    }
+
+    #carousel-caption {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.75);
+      padding: 12px;
+      font-size: 1rem;
+      color: var(--white);
+      font-weight: 600;
+      border-top: 2px solid var(--pink);
+    }
+
+    .grid-3 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 40px;
+    }
+
+    .card {
+      background: var(--gray);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.5rem;
+      flex: 1 1 280px;
+      box-shadow: 0 0 20px rgba(230, 0, 126, 0.15);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--pink);
+    }
+
+    .card h2 {
+      color: var(--pink);
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 
 <body>
-    <header class="topbar">
-        <div class="container nav">
-            <a href="index.html" class="brand">
-                <img src="assets/img/logo.svg" alt="HARDER BOX" />
-                <span>HARDER BOX</span>
-            </a>
-            <nav>
-                <ul class="menu">
-                    <li><a data-nav href="index.html">Inicio</a></li>
-                    <li><a data-nav href="servicios.html">Servicios</a></li>
-                    <li><a data-nav href="Contacto.html">Contacto</a></li>
-                </ul>
-            </nav>
-        </div>
+  <header class="topbar">
+    <div class="nav">
+      <a href="index.html" class="brand">
+        <img src="assets/img/Logo.png" alt="HARDER BOX" />
+        <span>HARDER BOX</span>
+      </a>
+      <nav>
+        <ul class="menu">
+          <li><a data-nav class="active" href="index.html">Inicio</a></li>
+          <li><a data-nav href="servicios.html">Servicios</a></li>
+          <li><a data-nav href="contacto.html">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="page-header">
+      <h1>Entrená con nosotros</h1>
+      <p>Planes personalizados, profesores certificados y el mejor ambiente para alcanzar tus metas.</p>
     </header>
 
-    <main class="container">
-        <section class="hero">
-            <h1>Entrená con nosotros</h1>
-            <p>Planes personalizados, profesores certificados y el mejor ambiente para alcanzar tus metas.</p>
-        </section>
+    <!-- Carrusel -->
+    <section class="carousel" aria-label="Galería del gimnasio">
+      <button class="carousel-btn prev" aria-label="Anterior">⟨</button>
 
-        
-       <section class="carousel" aria-label="Galería del gimnasio">
-  <button class="carousel-btn prev" aria-label="Anterior">⟨</button>
+      <figure class="carousel-viewport">
+        <img id="carousel-image" src="assets/img/slide1.jpg" alt="Instalaciones del gimnasio" />
+      </figure>
 
-  <figure class="carousel-viewport">
-    <img id="carousel-image" src="0.jpg" alt="Instalaciones del gimnasio" />
-    <figcaption id="carousel-caption">Sala de musculación</figcaption>
-  </figure>
+      <button class="carousel-btn next" aria-label="Siguiente">⟩</button>
+    </section>
 
-  <button class="carousel-btn next" aria-label="Siguiente">⟩</button>
-</section>
+    <section class="grid-3">
+      <article class="card">
+        <h2>Musculación</h2>
+        <p>Equipamiento de primera línea y rutinas adaptadas a tu nivel.</p>
+      </article>
+      <article class="card">
+        <h2>Clases grupales</h2>
+        <p>Funcional, HIIT, spinning, yoga y más, con profesores certificados.</p>
+      </article>
+      <article class="card">
+        <h2>Nutrición</h2>
+        <p>Asesoramiento nutricional para complementar tu entrenamiento.</p>
+      </article>
+    </section>
+  </main>
 
-            <button class="carousel-btn next" aria-label="Siguiente">⟩</button>
-        </section>
+  <footer class="footer">
+    © 2025 <span>HARDER GYM</span> — Fuerza sin límites.
+  </footer>
 
-        <section class="grid-3">
-            <article class="card">
-                <h2>Musculación</h2>
-                <p>Equipamiento de primera línea y rutinas adaptadas a tu nivel.</p>
-            </article>
-            <article class="card">
-                <h2>Clases grupales</h2>
-                <p>Funcional, HIIT, spinning, yoga y más, con profesores certificados.</p>
-            </article>
-            <article class="card">
-                <h2>Nutrición</h2>
-                <p>Asesoramiento nutricional para complementar tu entrenamiento.</p>
-            </article>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div class="container footer-grid">
-            <small>© <span id="year"></span> Gimnasio</small>
-            <small>San Luis, Argentina</small>
-        </div>
-    </footer>
-
-    <script src="assets/js/nav.js" defer></script>
-    <script src="assets/js/carousel.js" defer></script>
-    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-
-
- <script>
-  const images = [
-    { src: "1.jpeg", caption: "Sala de musculación" },
-    { src: "2.jpeg", caption: "Zona de cardio" },
-    { src: "3.jpeg", caption: "Área de peso libre" },
-    { src: "4.jpeg", caption: "Clases funcionales" },
-    { src: "5.jpeg", caption: "Entrenamiento personalizado" }
-  ];
-
-  let current = 0;
-  const img = document.getElementById("carousel-image");
-  const caption = document.getElementById("carousel-caption");
-
-  document.querySelector(".next").addEventListener("click", () => cambiar(1));
-  document.querySelector(".prev").addEventListener("click", () => cambiar(-1));
-
-  function cambiar(dir) {
-    current = (current + dir + images.length) % images.length;
-    img.style.opacity = 0;
-    setTimeout(() => {
-      img.src = images[current].src;
-      caption.textContent = images[current].caption;
-      img.style.opacity = 1;
-    }, 400);
-  }
-
-
-  setInterval(() => cambiar(1), 5000);
-</script>
+  <!-- Scripts -->
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/carousel.js" defer></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 
 </html>

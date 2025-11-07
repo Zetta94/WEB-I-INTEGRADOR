@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HARDER BOX - Servicios</title>
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <style>
+        .cols {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .col {
+            background: var(--gray);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 1.5rem;
+            flex: 1 1 280px;
+            box-shadow: 0 0 20px rgba(230, 0, 126, 0.15);
+            transition: transform 0.3s;
+        }
+
+        .col:hover {
+            transform: translateY(-6px);
+            border-color: var(--pink);
+        }
+
+        .col h2 {
+            color: var(--pink);
+            margin-bottom: 10px;
+        }
+
+        .col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .col li {
+            margin-bottom: 6px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="nav">
+            <a href="index.html" class="brand">
+                <img src="assets/img/Logo.png" alt="HARDER BOX" />
+                <span>HARDER BOX</span>
+            </a>
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a class="active" href="servicios.html">Servicios</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="page-header">
+            <h1>Nuestros servicios</h1>
+            <p>Conocé nuestros planes y modalidades. Elegí el que mejor se adapte a vos.</p>
+        </header>
+
+        <article class="cols">
+            <section class="col">
+                <h2>Plan Básico</h2>
+                <ul>
+                    <li>Acceso a sala de musculación</li>
+                    <li>Rutina mensual</li>
+                    <li>Horarios flexibles</li>
+                </ul>
+            </section>
+
+            <section class="col">
+                <h2>Plan Full</h2>
+                <ul>
+                    <li>Todo lo del básico</li>
+                    <li>Clases grupales ilimitadas</li>
+                    <li>Evaluación física trimestral</li>
+                </ul>
+            </section>
+
+            <section class="col">
+                <h2>Plan Premium</h2>
+                <ul>
+                    <li>Entrenador personal</li>
+                    <li>Plan nutricional</li>
+                    <li>Acceso a eventos exclusivos</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer class="footer">
+        © 2025 <span>HARDER GYM</span> — Fuerza sin límites.
+    </footer>
+
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+
+</html>

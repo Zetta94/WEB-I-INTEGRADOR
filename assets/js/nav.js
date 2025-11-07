@@ -1,8 +1,15 @@
 (function () {
-    const links = document.querySelectorAll('a[data-nav]');
-    const here = location.pathname.split('/').pop() || 'index.html';
-    links.forEach(a => {
-        const file = a.getAttribute('href');
-        if (file === here) { a.classList.add('active'); }
-    });
+    let enlaces = document.querySelectorAll("a[data-nav]");
+    let pagina = window.location.pathname.split("/").pop();
+
+    if (pagina === "") {
+        pagina = "index.html";
+    }
+
+    for (let i = 0; i < enlaces.length; i++) {
+        let enlace = enlaces[i];
+        if (enlace.getAttribute("href") === pagina) {
+            enlace.classList.add("active");
+        }
+    }
 })();
